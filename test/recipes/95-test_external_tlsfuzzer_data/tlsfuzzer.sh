@@ -15,12 +15,18 @@ set -x
 
 PWD="$PWD"
 
-SRCTOP="$(cd "$SRCTOP"; pwd)"
-BLDTOP="$(cd "$BLDTOP"; pwd)"
+SRCTOP="$(
+  cd "$SRCTOP"
+  pwd
+)"
+BLDTOP="$(
+  cd "$BLDTOP"
+  pwd
+)"
 
-if [ "$SRCTOP" != "$BLDTOP" ] ; then
-    echo "Out of tree builds not supported with TLSFuzzer test!"
-    exit 1
+if [ "$SRCTOP" != "$BLDTOP" ]; then
+  echo "Out of tree builds not supported with TLSFuzzer test!"
+  exit 1
 fi
 
 O_EXE="$BLDTOP/apps"
@@ -31,7 +37,6 @@ O_LIB="$BLDTOP"
 export PATH="$O_EXE:$PATH"
 export LD_LIBRARY_PATH="$O_LIB:$LD_LIBRARY_PATH"
 export OPENSSL_ROOT_DIR="$O_LIB"
-
 
 CLI="$O_EXE/openssl"
 SERV="$O_EXE/openssl"

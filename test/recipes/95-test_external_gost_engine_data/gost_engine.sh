@@ -14,12 +14,18 @@ set -e
 
 PWD="$PWD"
 
-SRCTOP="$(cd "$SRCTOP"; pwd)"
-BLDTOP="$(cd "$BLDTOP"; pwd)"
+SRCTOP="$(
+  cd "$SRCTOP"
+  pwd
+)"
+BLDTOP="$(
+  cd "$BLDTOP"
+  pwd
+)"
 
-if [ "$SRCTOP" != "$BLDTOP" ] ; then
-    echo "Out of tree builds not supported with gost_engine test!"
-    exit 1
+if [ "$SRCTOP" != "$BLDTOP" ]; then
+  echo "Out of tree builds not supported with gost_engine test!"
+  exit 1
 fi
 
 O_EXE="$BLDTOP/apps"
