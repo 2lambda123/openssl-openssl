@@ -91,7 +91,7 @@ which is updated automatically from the former on every commit.
 A local copy of the Git Repository can be obtained by cloning it from
 the original OpenSSL repository using
 
-    This is necessary because all development of OpenSSL nowadays is done via GitHub pull requests. For more details, see [Contributing](CONTRIBUTING.md).
+For detailed documentation, refer to the [OpenSSL Documentation](https://www.openssl.org/docs/).
 
 or from the GitHub mirror using
 
