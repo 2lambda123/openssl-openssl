@@ -14,8 +14,8 @@ set -e
 
 PWD="$(pwd)"
 
-SRCTOP="$(cd $SRCTOP; pwd)"
-BLDTOP="$(cd $BLDTOP; pwd)"
+SRCTOP="$(cd "$SRCTOP"; pwd)"
+BLDTOP="$(cd "$BLDTOP"; pwd)"
 
 if [ "$SRCTOP" != "$BLDTOP" ] ; then
     echo "Out of tree builds not supported with gost_engine test!"
@@ -34,7 +34,7 @@ export LD_LIBRARY_PATH="$O_LIB:$LD_LIBRARY_PATH"
 export OPENSSL_ROOT_DIR="$O_LIB"
 
 # Check/Set openssl version
-OPENSSL_VERSION=`openssl version | cut -f 2 -d ' '`
+OPENSSL_VERSION=$(openssl version | cut -f 2 -d ' ')
 
 echo "------------------------------------------------------------------"
 echo "Testing OpenSSL using GOST engine:"
@@ -45,7 +45,7 @@ echo "   OPENSSL_ROOT_DIR:   $OPENSSL_ROOT_DIR"
 echo "   OpenSSL version:    $OPENSSL_VERSION"
 echo "------------------------------------------------------------------"
 
-cmake $SRCTOP/gost-engine -DOPENSSL_ROOT_DIR="$OPENSSL_ROOT_DIR" -DOPENSSL_ENGINES_DIR="$OPENSSL_ROOT_DIR/engines"
+cmake "$SRCTOP"/gost-engine -DOPENSSL_ROOT_DIR="$OPENSSL_ROOT_DIR" -DOPENSSL_ENGINES_DIR="$OPENSSL_ROOT_DIR/engines"
 make
 export CTEST_OUTPUT_ON_FAILURE=1
 export HARNESS_OSSL_PREFIX=''

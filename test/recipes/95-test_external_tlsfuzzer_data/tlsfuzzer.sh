@@ -15,8 +15,8 @@ set -x
 
 PWD="$(pwd)"
 
-SRCTOP="$(cd $SRCTOP; pwd)"
-BLDTOP="$(cd $BLDTOP; pwd)"
+SRCTOP="$(cd "$SRCTOP"; pwd)"
+BLDTOP="$(cd "$BLDTOP"; pwd)"
 
 if [ "$SRCTOP" != "$BLDTOP" ] ; then
     echo "Out of tree builds not supported with TLSFuzzer test!"
@@ -42,7 +42,7 @@ OPENSSL_VERSION=$($CLI version | cut -f 2 -d ' ')
 TMPFILE="${PWD}/tls-fuzzer.$$.tmp"
 PSKFILE="${PWD}/tls-fuzzer.psk.$$.tmp"
 
-PYTHON=`which python3`
+PYTHON=$(which python3)
 PORT=4433
 
 echo "------------------------------------------------------------------"
@@ -65,12 +65,12 @@ retval=0
 
 tls_fuzzer_prepare
 
-PYTHONPATH=. "${PYTHON}" tests/scripts_retention.py ${TMPFILE} ${SERV} 821
+PYTHONPATH=. "${PYTHON}" tests/scripts_retention.py "${TMPFILE}" "${SERV}" 821
 retval=$?
 
-rm -f ${TMPFILE}
-[ -f "${PSKFILE}" ] && rm -f ${PSKFILE}
+rm -f "${TMPFILE}"
+[ -f "${PSKFILE}" ] && rm -f "${PSKFILE}"
 
-cd $PWD
+cd "$PWD"
 
 exit $retval
