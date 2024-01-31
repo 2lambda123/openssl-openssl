@@ -13,7 +13,7 @@
 set -e
 set -x
 
-PWD="$(pwd)"
+PWD="$PWD"
 
 SRCTOP="$(cd "$SRCTOP"; pwd)"
 BLDTOP="$(cd "$BLDTOP"; pwd)"
@@ -33,14 +33,14 @@ export LD_LIBRARY_PATH="$O_LIB:$LD_LIBRARY_PATH"
 export OPENSSL_ROOT_DIR="$O_LIB"
 
 
-CLI="${O_EXE}/openssl"
-SERV="${O_EXE}/openssl"
+CLI="$O_EXE/openssl"
+SERV="$O_EXE/openssl"
 
 # Check/Set openssl version
-OPENSSL_VERSION=$($CLI version | cut -f 2 -d ' ')
+OPENSSL_VERSION=$("$CLI" version | cut -f 2 -d ' ')
 
-TMPFILE="${PWD}/tls-fuzzer.$$.tmp"
-PSKFILE="${PWD}/tls-fuzzer.psk.$$.tmp"
+TMPFILE="$PWD/tls-fuzzer.$$.tmp"
+PSKFILE="$PWD/tls-fuzzer.psk.$$.tmp"
 
 PYTHON=$(which python3)
 PORT=4433
@@ -56,7 +56,7 @@ echo "   TESTDATADIR:        $TESTDATADIR"
 echo "   OPENSSL_VERSION:    $OPENSSL_VERSION"
 echo "------------------------------------------------------------------"
 
-cd "${SRCTOP}/tlsfuzzer"
+cd "$SRCTOP/tlsfuzzer"
 
 test -L ecdsa || ln -s ../python-ecdsa/src/ecdsa ecdsa
 test -L tlslite || ln -s ../tlslite-ng/tlslite tlslite 2>/dev/null
@@ -65,12 +65,12 @@ retval=0
 
 tls_fuzzer_prepare
 
-PYTHONPATH=. "${PYTHON}" tests/scripts_retention.py "${TMPFILE}" "${SERV}" 821
+PYTHONPATH=. "$PYTHON" tests/scripts_retention.py "$TMPFILE" "$SERV" 821
 retval=$?
 
-rm -f "${TMPFILE}"
-[ -f "${PSKFILE}" ] && rm -f "${PSKFILE}"
+rm -f "$TMPFILE"
+[ -f "$PSKFILE" ] && rm -f "$PSKFILE"
 
 cd "$PWD"
 
-exit $retval
+exit "$retval"

@@ -12,7 +12,7 @@
 #
 set -e
 
-PWD="$(pwd)"
+PWD="$PWD"
 
 SRCTOP="$(cd "$SRCTOP"; pwd)"
 BLDTOP="$(cd "$BLDTOP"; pwd)"
