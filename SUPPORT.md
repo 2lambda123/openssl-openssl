@@ -35,7 +35,7 @@ does not mean it is necessarily a bug in OpenSSL. If you are not sure,
 consider searching the mail archives and posting a question to the
 [openssl-users] mailing list first.
 
-### Open an Issue
+If you wish to report a bug, please open an [issue][github-issues] on GitHub and include the following information:
 
 If you wish to report a bug, please open an [issue][github-issues] on GitHub
 and include the following information:
@@ -51,7 +51,7 @@ and include the following information:
 Not only errors in the software, also errors in the documentation, in
 particular the manual pages, can be reported as issues.
 
-### Submit a Pull Request
+To submit a pull request, please follow the instructions in the [Contributing][contributing] section.
 
 The fastest way to get a bug fixed is to fix it yourself ;-). If you are
 experienced in programming and know how to fix the bug, you can open a
