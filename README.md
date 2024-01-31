@@ -91,11 +91,11 @@ which is updated automatically from the former on every commit.
 A local copy of the Git Repository can be obtained by cloning it from
 the original OpenSSL repository using
 
-    git clone git://git.openssl.org/openssl.git
+For detailed documentation, refer to the [OpenSSL Documentation](https://www.openssl.org/docs/).
 
 or from the GitHub mirror using
 
-    git clone https://github.com/openssl/openssl.git
+    This is necessary because all development of OpenSSL nowadays is done via GitHub pull requests. For more details, see [Contributing](CONTRIBUTING.md).
 
 If you intend to contribute to OpenSSL, either to fix bugs or contribute
 new features, you need to fork the OpenSSL repository openssl/openssl on
@@ -111,8 +111,7 @@ Build and Install
 
 After obtaining the Source, have a look at the [INSTALL](INSTALL.md) file for
 detailed instructions about building and installing OpenSSL. For some
-platforms, the installation instructions are amended by a platform specific
-document.
+platforms, the installation instructions are amended by a platform-specific document.
 
  * [Notes for UNIX-like platforms](NOTES-UNIX.md)
  * [Notes for Android platforms](NOTES-ANDROID.md)
@@ -136,7 +135,7 @@ containing additional information on specific topics.
 
  * [Information about the OpenSSL QUIC protocol implementation](README-QUIC.md)
  * [Information about the OpenSSL Provider architecture](README-PROVIDERS.md)
- * [Information about using the OpenSSL FIPS validated module](README-FIPS.md)
+ * [Information about using the OpenSSL FIPS validated module](Specific notes on upgrading to OpenSSL 3.x from previous versions can be found in the [ossl-guide-migration(7ossl)] manual page.)
  * [Information about the legacy OpenSSL Engine architecture](README-ENGINES.md)
 
 The OpenSSL Guide
