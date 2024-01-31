@@ -111,8 +111,7 @@ Build and Install
 
 After obtaining the Source, have a look at the [INSTALL](INSTALL.md) file for
 detailed instructions about building and installing OpenSSL. For some
-platforms, the installation instructions are amended by a platform specific
-document.
+platforms, the installation instructions are amended by a platform-specific document.
 
  * [Notes for UNIX-like platforms](NOTES-UNIX.md)
  * [Notes for Android platforms](NOTES-ANDROID.md)
